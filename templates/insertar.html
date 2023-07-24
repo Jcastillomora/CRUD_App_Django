@@ -1,0 +1,18 @@
+{% block content %}{% load bootstrap5 %} {% bootstrap_css %} {%bootstrap_javascript %}
+{%bootstrap_messages %}
+{% load crispy_forms_tags %}
+<div class="container p-2">
+    <br>
+    <h2 class="text-center">Ingresar los Datos del Laboratorio</h2>
+    <div class="row col-6 mt-3">
+        <form action="" method="post" class="">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+<div class="p-2 alert alert-danger" role="alert">
+    ¿Información de los laboratorios?<br><a href="{% url 'mostrar_lab_view' %}">Ir a información de los laboratorios--></a>
+</div>
+</div>
+{% endblock content %}

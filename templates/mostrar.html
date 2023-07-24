@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block content %}{% load bootstrap5 %} {% bootstrap_css %} {%bootstrap_javascript %}
+    {%bootstrap_messages %} {% load static %}
+
+    <title>Laboratorios</title>
+  </head>
+  <body>
+  <br>
+  <div class="container p-2" style="border: 2px solid black; text-align:left;">
+    <h2 class="text-center">Información de Laboratorios</h2>
+    <br>
+      <div class="table-responsive-sm" style="display: inline-block; width: 30%">
+        <table class="table table-auto" style="border: 1px solid black">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">Pais</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for laboratorio in laboratorios %}
+            <tr>
+              <td nowrap>{{laboratorio.nombre}}</td>
+              <td nowrap>{{laboratorio.ciudad}}</td>
+              <td nowrap>{{laboratorio.pais}}</td>
+              <td nowrap>
+              <a href="{% url 'editar_lab_view' laboratorio.pk  %}">Actualizar</a>
+              </td>
+              <td nowrap>
+              <a href="{% url 'eliminar_lab_view' laboratorio.pk %}">Eliminar</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    <p>¿Información de los Laboratorios?</p>
+    <a href="{% url 'mostrar_lab_view' %}"><-- Ir a la página de Inicio</a>
+    <br>  
+    <p>Usted a visitado esta página {{num_visitas}} vecees.</p>
+    <br>
+  </div>
+  </body>
+</html>
+{% endblock content %}

@@ -1,0 +1,20 @@
+
+laboratorios = Laboratorio.objects.all()
+
+directores = DirectorGeneral.objects.all()
+
+productos = Producto.objects.all()
+
+producto_1 = Producto.objects.get(nombre='Producto 1')
+
+laboratorio_producto_1 = producto_1.laboratorio
+
+productos_ordenados = Producto.objects.order_by('nombre')
+
+for producto in productos_ordenados:
+    print(f"Nombre: {producto.nombre}, Laboratorio: {producto.laboratorio.nombre}")
+
+productos = Productos.objects.all()
+
+for producto in productos:
+    print(f"Producto: {producto.nombre}, Laboratorio: {producto.laboratorio.nombre}")

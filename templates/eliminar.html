@@ -1,0 +1,19 @@
+{% block content %}{% load bootstrap5 %} {% bootstrap_css %} {%bootstrap_javascript %}
+{%bootstrap_messages %}
+<div class="container p-2">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <br><br>
+        <div class="alert alert-danger" role="alert">
+        Estas seguro que deseas eliminar el "{{laboratorio.nombre}}"?
+        </div>
+        <p>
+        <a href="{% url 'mostrar_lab_view' %}"><-- Retornar</a>
+        </p>
+        <p>
+        <input class="btn btn-danger" type="submit" value="Confirm">
+        </p>
+    </form>
+</div>
+
+{% endblock content %}
